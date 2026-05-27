@@ -1,0 +1,41 @@
+---
+title: "Workshop3"
+author: "Kira Roberts"
+date: "2026-05-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Workshop 03. Git and GitHub
+## Setting up the Repository 
+#### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
+This document contains the code needed for the third workshop in the MB5370 "Introduction to Programming" module. 
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
