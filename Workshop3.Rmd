@@ -1,5 +1,5 @@
 ---
-title: "Workshop3"
+title: "Workshop 03. Git and GitHub"
 author: "Kira Roberts"
 date: "2026-05-26"
 output: html_document
@@ -8,37 +8,45 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-# Workshop 03. Git and GitHub
-## Setting up the Repository 
+
+## Introduction
+
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
-This document contains the code needed for the third workshop in the MB5370 "Introduction to Programming" module. 
+
+This document contains the code needed for the third workshop in the MB5370 "Introduction to Programming" module.
+
+The majority of this workshop was dedicated to setting up and linking a project to a repository in GitHub. The following is a record of what was undertaken and the code necessary for this. Most code was run through the console with some exceptions in the terminal. This file should not be run as is.
+
+## Setting up Git
+The first task needed to be completed was to ensure Git has been installed on the computer. We can check this by using "which git" in the terminal. 
+
+Once this has been installed you now need to check that everything is talking to each other. In the console you must install the "usethis" package and then check credentials.   
 
 
-The majority of this workshop was setting up and linking a project and i know its working work
-```{r}
+```{r, eval=FALSE, error=FALSE, message=FALSE}
+install.packages("usethis") #allows us to use the following code
+
+credentials::git_credential_ask() #confirms that you are connected and that git knows who you are, it also allows you to work out if you have a "password" - this is the PAT
+
+usethis::git_sitrep() #
+```
+
+```{r, eval=FALSE, error=FALSE, message=FALSE}
 
 ```
 
-```{r}
+```{r, eval=FALSE, error=FALSE, message=FALSE}
+
 ```
 
+```{r, eval=FALSE, error=FALSE, message=FALSE}
 
-```{r}
 ```
 
+```{r, eval=FALSE, error=FALSE, message=FALSE}
 
-```{r}
 ```
 
+```{r, eval=FALSE, error=FALSE, message=FALSE}
 
-```{r}
 ```
-
-
-```{r}
-```
-
-
-```{r}
-```
-
