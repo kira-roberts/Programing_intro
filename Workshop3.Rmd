@@ -13,7 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
 This document contains the code needed for the third workshop in the MB5370 "Introduction to Programming" module. 
 
+
+The majority of this workshop was setting up and linking a project
 ```{r}
+
 ```
 
 ```{r}
