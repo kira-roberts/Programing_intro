@@ -1,5 +1,5 @@
 ---
-title: "Workshop 03. Git and GitHub"
+title: "Workshop 03. Reproducible Research - Git and GitHub"
 author: "Kira Roberts"
 date: "2026-05-26"
 output: html_document
@@ -24,10 +24,10 @@ Once this has been installed you now need to check that everything is talking to
 
 
 ```
-#install.packages("usethis") #allows us to use the following code
+install.packages("usethis") #allows us to use the following code
 
-#credentials::git_credential_ask() #confirms that you are connected and that git knows who you are, it also allows you to work out if you have a "password" - this is the PAT
+credentials::git_credential_ask() #confirms that you are connected and that git knows who you are, it also allows you to work out if you have a "password" - this is the PAT
 
-#usethis::git_sitrep() #
+usethis::git_sitrep() #
 ```
 

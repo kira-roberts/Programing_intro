@@ -1,0 +1,18 @@
+---
+title: "Workshop 04. The Developer's Toolbox & AI"
+author: "KiraRoberts"
+date: "2026-05-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+#### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
+
+This document contains the code needed for the fourth workshop in the MB5370 "Introduction to Programming" module.
+
+

@@ -1,5 +1,5 @@
 ---
-title: "Techniques_W1"
+title: "Workshop 01. Introduction"
 author: "Kira Roberts"
 date: "2026-05-20"
 output: html_document
@@ -9,7 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Workshop 01. Introduction
 ## Variables and Assignment
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
 This document contains the code needed for the first workshop in the MB5370 "Introduction to Programming" module

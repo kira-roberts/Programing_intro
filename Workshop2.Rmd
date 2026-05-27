@@ -1,5 +1,5 @@
 ---
-title: "MB5370: Introduction to Programing"
+title: "Workshop 02. Visualization"
 author: "Kira Roberts"
 date: "2026-05-20"
 output: html_document
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #include=FALSE
 ```
 
-# Workshop 02. Visualization
+
 ## Load packages and data
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
 
