@@ -23,30 +23,11 @@ The first task needed to be completed was to ensure Git has been installed on th
 Once this has been installed you now need to check that everything is talking to each other. In the console you must install the "usethis" package and then check credentials.   
 
 
-```{r, eval=FALSE, error=FALSE, message=FALSE}
-install.packages("usethis") #allows us to use the following code
+```
+#install.packages("usethis") #allows us to use the following code
 
-credentials::git_credential_ask() #confirms that you are connected and that git knows who you are, it also allows you to work out if you have a "password" - this is the PAT
+#credentials::git_credential_ask() #confirms that you are connected and that git knows who you are, it also allows you to work out if you have a "password" - this is the PAT
 
-usethis::git_sitrep() #
+#usethis::git_sitrep() #
 ```
 
-```{r, eval=FALSE, error=FALSE, message=FALSE}
-
-```
-
-```{r, eval=FALSE, error=FALSE, message=FALSE}
-
-```
-
-```{r, eval=FALSE, error=FALSE, message=FALSE}
-
-```
-
-```{r, eval=FALSE, error=FALSE, message=FALSE}
-
-```
-
-```{r, eval=FALSE, error=FALSE, message=FALSE}
-
-```
