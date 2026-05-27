@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 This document contains the code needed for the third workshop in the MB5370 "Introduction to Programming" module. 
 
 
-The majority of this workshop was setting up and linking a project and i have no idea if its working
+The majority of this workshop was setting up and linking a project and i really have no idea if its working
 ```{r}
 
 ```
