@@ -16,6 +16,10 @@ knitr::opts_chunk$set(echo = TRUE)
 This document contains the code needed for the fourth workshop in the MB5370 "Introduction to Programming" module.
 The following is a record of what was undertaken and the code necessary for this. Most code was run through the console with some exceptions in the terminal. This file should not be run as is.
 
+## Copilot 
+
+
+
 ## Chattr 
 
 
@@ -23,7 +27,7 @@ The following is a record of what was undertaken and the code necessary for this
 #install.packages("chattr")
 #usethis::edit_r_environ()
 #usethis::edit_r_profile()
-#GEMINI_API_KEY="AIzaSyBtyTCeAiyBkH8EfpUkR3JwcKEvpfa6vXE"
+
 
 #set shortcut to open chat to "ctrl + alt + c" 
 
