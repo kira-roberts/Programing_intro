@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-05-20" />
 
-<title>Techniques_W1</title>
+<title>Workshop 01. Introduction</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,20 +350,20 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Techniques_W1</h1>
+<h1 class="title toc-ignore">Workshop 01. Introduction</h1>
 <h4 class="author">Kira Roberts</h4>
 <h4 class="date">2026-05-20</h4>
 
 </div>
 
 
-<p>Path = D:/1Techniques/Workshop1.Rmd</p>
-<div id="workshop-01.-introduction" class="section level1">
-<h1>Workshop 01. Introduction</h1>
 <div id="variables-and-assignment" class="section level2">
 <h2>Variables and Assignment</h2>
-<div id="workspace-d1techniquesmodule_01.r" class="section level4">
-<h4>Workspace: D:/1Techniques/Module_01.R</h4>
+<div id="workspace-d1techniquesprograming_introprograming_intro.rproj" class="section level4">
+<h4>Workspace:
+D:/1Techniques/Programing_intro/Programing_intro.Rproj</h4>
+<p>This document contains the code needed for the first workshop in the
+MB5370 “Introduction to Programming” module</p>
 <p>This section focuses on understanding how data is stored in R and why
 this matters</p>
 <pre class="r"><code>age &lt;- 25     # shortcut: &quot;alt&quot; + &quot;-&quot; 
@@ -385,8 +385,6 @@ round(years_old) #rounds up</code></pre>
 <pre class="r"><code>years_old &lt;- 25.765  
 round(years_old, 2) #allows you to specify the rounding to 2 decimal points</code></pre>
 <pre><code>## [1] 25.76</code></pre>
-<pre class="r"><code>?round #goes to help page for the rounding function</code></pre>
-<pre><code>## starting httpd help server ... done</code></pre>
 <pre class="r"><code>args(round) #allows you to query arguments for each function</code></pre>
 <pre><code>## function (x, digits = 0, ...) 
 ## NULL</code></pre>
@@ -509,22 +507,12 @@ str(my_dataframe)</code></pre>
 <h2>Packages and Libraries</h2>
 <pre class="r"><code>#install.packages(&quot;tidyverse&quot;)
 library(tidyverse)</code></pre>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.5.3</code></pre>
-<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.5.3</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.2.1     ✔ readr     2.2.0
-## ✔ forcats   1.0.1     ✔ stringr   1.6.0
-## ✔ ggplot2   4.0.3     ✔ tibble    3.3.1
-## ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
-## ✔ purrr     1.2.2     
+## ✔ dplyr     1.2.0     ✔ readr     2.2.0
+## ✔ forcats   1.0.1     ✔ stringr   1.5.1
+## ✔ ggplot2   4.0.2     ✔ tibble    3.3.0
+## ✔ lubridate 1.9.5     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.4     
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
@@ -544,6 +532,9 @@ library(ggplot2)
 </ol>
 </div>
 </div>
+<div id="execute-workshop-1-r-script" class="section level1">
+<h1>Execute Workshop 1 R script</h1>
+<pre class="r"><code>#source(&quot;../Module_01.R&quot;) #reads all the script code from module 1 (found via the file path) and pastes the results here </code></pre>
 </div>
 
 

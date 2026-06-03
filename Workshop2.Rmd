@@ -7,19 +7,15 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-#echo=FALSE - hides code
-#warning=FALSE - hides warnings
-#error=FALSE
-#message=FALSE - hides any information/messages
-#include=FALSE
 ```
 
-
-## Load packages and data
+## Introduction
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
 
+This document contains the code needed for the second workshop in the MB5370 "Introduction to Programming" module.
 
-This document contains the code needed for the second workshop in the MB5370 "Introduction to Programming" module
+This workshop focuses on understanding data visualization through the ggplot package
+
 
 ```{r, install, echo=FALSE, warning=FALSE, message=FALSE}
 #install.packages("tidyverse")
@@ -31,6 +27,8 @@ library(tidyverse)
 ```
 
 This is the raw plots of the mpg data from which the rest of this document will modify and work with.
+
+## Creating a ggplot
 
 ```{r plots, warning=FALSE}
 ggplot(data = mpg) + 

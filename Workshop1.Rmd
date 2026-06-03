@@ -9,20 +9,36 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Variables and Assignment
+## Introduction
+
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
+
 This document contains the code needed for the first workshop in the MB5370 "Introduction to Programming" module
 
-This section focuses on understanding how data is stored in R and why this matters
-```{r}
-age <- 25     # shortcut: "alt" + "-" 
-first_name <- 'Bill'
+This workshop focuses on understanding the RStudio environment, basic syntax and some of the best practices in coding. This includes building an understanding on how data is stored in R and why this matters, we will do this through writing simple code and exploring bugged code.
 
-Ex1_sum <- 1 + 25.1 + 20.25
-```
+## Objects, Functions and Arguments
+
+At it's simplest, R (and by default RStudio) can act as a calculator for simple arithmetic but it is also a powerful tool for computing and visualizing all sorts of variables.
+
+### Objects and the Assignment Operator
+
+Programming languages allow you to store things as *objects*, or as they're sometimes called *variables*. Storing information in the environment in this way allows you to easily call it back later. To save data in this way, we use an *assignment operator* which looks like an arrow pointing to the left ( <- ). This takes everything on the right hand side and stores it in the object on the left. This operator uses the shortcut: "alt" + "-".
+What we see below is just 4 ways this can be utilized. 
  
+```{r}
+age <- 25   #assigns the value of 25 to the variable "age"
+
+first_name <- 'Bill'  #assigns the character value "Bill" to the object "first_name"
+
+Ex1_sum <- 1 + 25.1 + 20.25 #saves the final value of the sum
+
+fish_lengths <- c(124, 152, 98, 221, 146) #saves the vector of multiple fish lengths
+```
+
 ### Functions
-Link to all of R's built in functions: "https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html"
+
+One of the more powerful aspects of the programming languages used in R, is that they come equipped with many built-in *functions*. These allow you to perform many different tasks. Link to all of R's built in functions: "<https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html>"
 
 ```{r}
 years_old <- 25.7 
@@ -30,24 +46,29 @@ round(years_old) #rounds up
 floor(years_old) #rounds down
 ```
 
-### Arguments 
+### Arguments
+
+Each function has added sections of code that lets you specify certain aspects of the function. These are called *arguments*, and give you greater control of your output. These are written within the brackets of a function and separated by commas.
+
 ```{r}
 years_old <- 25.765  
 round(years_old, 2) #allows you to specify the rounding to 2 decimal points
-?round #goes to help page for the rounding function
 args(round) #allows you to query arguments for each function
 ```
 
-### Exercise 
+### Exercise
+
 ```{r exercise1}
 Kyears_old <- 27
 paste("Kira is", Kyears_old, "years old")
 ```
 
-
 ## Debugging
-### Misconceptions 
+
+### Misconceptions
+
 Variables in programs do not work the same way as they do in spreadsheets
+
 ```{r misconceptions}
 grade <- 55 
 total <- grade + 10 
@@ -59,14 +80,13 @@ print(total)  # executed in the way it was defined
 ```
 
 what will this code do?
+
 ```{r test}
 p <- 2 
 z <- 5
 out <- p * z  # What should the value of out be?
 print(out)  # What is the value of out? Is it the same as expected?
 ```
-
-
 
 ```{r, Debugging errors}
 #out <- p * a
@@ -79,7 +99,8 @@ is.character(x)
 is.numeric (x)
 ```
 
-### Exercise 
+### Exercise
+
 ```{r exercise2}
 # Given code
 #my_quiz <- c("uno",
@@ -103,7 +124,9 @@ length(my_quiz)
 ```
 
 ## Data types
-### Exercise 
+
+### Exercise
+
 ```{r exercise3}
 my_numeric_variable = 4.2
 class(my_numeric_variable)
@@ -119,6 +142,7 @@ class(my_interger_variable)
 ```
 
 ## Data structures
+
 ```{r}
 y <- c(1, 2, 3) #numerical values in a vector
 z <- c("Sarah", "Tracy", "Jon") #character  values in a vector
@@ -130,6 +154,7 @@ x[[2]] #prints the second item in the list
 ```
 
 ## Data frames and tibbles
+
 ```{r}
 my_dataframe <- data.frame(no = c(1,2,3), c("Tracey", "John", "Pete"), c(TRUE, FALSE, TRUE))
 my_dataframe
@@ -140,6 +165,7 @@ str(my_dataframe)
 ```
 
 ## Packages and Libraries
+
 ```{r}
 #install.packages("tidyverse")
 library(tidyverse)
@@ -148,13 +174,16 @@ library(ggplot2)
 #install.packages("ggplot","tidyr", "earthtones","redlistr","dplyr" ,"terra")
 ```
 
-## Coding best practices ####
-### Exercise 
-1. Read in the .csv dataset into R
-2. Filter data by species 
-3. Use ggplot to graph counts
+## Coding best practices
+
+### Exercise
+
+1.  Read in the .csv dataset into R
+2.  Filter data by species
+3.  Use ggplot to graph counts
 
 # Execute Workshop 1 R script
+
 ```{r}
-source("../Module_01.R") #reads all the script code from module 1 (found via the file path) and pastes the results here 
+#source("../Module_01.R") #reads all the script code from module 1 (found via the file path) and pastes the results here 
 ```
