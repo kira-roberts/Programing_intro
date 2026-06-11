@@ -11,9 +11,9 @@
 
 <meta name="author" content="Kira Roberts" />
 
-<meta name="date" content="2026-05-20" />
+<meta name="date" content="2026-05-27" />
 
-<title>Workshop 01. Introduction</title>
+<title>Workshop 04. The Developer’s Toolbox &amp; AI</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,9 +350,10 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Workshop 01. Introduction</h1>
+<h1 class="title toc-ignore">Workshop 04. The Developer’s Toolbox &amp;
+AI</h1>
 <h4 class="author">Kira Roberts</h4>
-<h4 class="date">2026-05-20</h4>
+<h4 class="date">2026-05-27</h4>
 
 </div>
 
@@ -362,179 +363,38 @@ display: none;
 <div id="workspace-d1techniquesprograming_introprograming_intro.rproj" class="section level4">
 <h4>Workspace:
 D:/1Techniques/Programing_intro/Programing_intro.Rproj</h4>
-<p>This document contains the code needed for the first workshop in the
-MB5370 “Introduction to Programming” module</p>
-<p>This workshop focuses on understanding the RStudio environment, basic
-syntax and some of the best practices in coding. This includes building
-an understanding on how data is stored in R and why this matters, we
-will do this through writing simple code and exploring bugged code.</p>
+<p>This document contains the code needed for the fourth workshop in the
+MB5370 “Introduction to Programming” module. The following is a record
+of what was undertaken and the code necessary for this. Most code was
+run through the console with some exceptions in the terminal. This file
+should not be run as is.</p>
 </div>
 </div>
-<div id="objects-functions-and-arguments" class="section level2">
-<h2>Objects, Functions and Arguments</h2>
-<p>At it’s simplest, R (and by default RStudio) can act as a calculator
-for simple arithmetic but it is also a powerful tool for computing and
-visualizing all sorts of variables.</p>
-<div id="objects-and-the-assignment-operator" class="section level3">
-<h3>Objects and the Assignment Operator</h3>
-<p>Programming languages allow you to store things as <em>objects</em>,
-or as they’re sometimes called <em>variables</em>. Storing information
-in the environment in this way allows you to easily call it back later.
-To save data in this way, we use an <em>assignment operator</em> which
-looks like an arrow pointing to the left ( &lt;- ). This takes
-everything on the right hand side and stores it in the object on the
-left. This operator uses the shortcut: “alt” + “-”. What we see below is
-just 4 ways this can be utilized.</p>
-<pre class="r"><code>age &lt;- 25   #assigns the value of 25 to the variable &quot;age&quot;
+<div id="copilot" class="section level2">
+<h2>Copilot</h2>
+</div>
+<div id="chattr" class="section level2">
+<h2>Chattr</h2>
+<p>#install.packages(“ellmer”) #install.packages(“chattr”)
+#usethis::edit_r_environ() #usethis::edit_r_profile()</p>
+<p>#set shortcut to open chat to “ctrl + alt + c”</p>
+</div>
+<div id="if-and-else" class="section level2">
+<h2>if and else</h2>
+<pre class="r"><code># Simple Example: Checking Sea Surface Temperature (SST)
 
-first_name &lt;- &#39;Bill&#39;  #assigns the character value &quot;Bill&quot; to the object &quot;first_name&quot;
+sst &lt;- 30.2
 
-Ex1_sum &lt;- 1 + 25.1 + 20.25 #saves the final value of the sum
-
-fish_lengths &lt;- c(124, 152, 98, 221, 146) #saves the vector of multiple fish lengths</code></pre>
+if (sst &gt; 29.5) {
+  print(&quot;Warning: Marine heatwave threshold exceeded!&quot;)
+} else {
+  print(&quot;SST remains within baseline parameters.&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;Warning: Marine heatwave threshold exceeded!&quot;</code></pre>
 </div>
-<div id="functions" class="section level3">
-<h3>Functions</h3>
-<p>One of the more powerful aspects of the programming languages used in
-R, is that they come equipped with many built-in <em>functions</em>.
-These allow you to perform many different tasks. Link to all of R’s
-built in functions: “<a href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html" class="uri">https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html</a>”</p>
-<pre class="r"><code>years_old &lt;- 25.7 
-round(years_old) #rounds up</code></pre>
-<pre><code>## [1] 26</code></pre>
-<pre class="r"><code>floor(years_old) #rounds down</code></pre>
-<pre><code>## [1] 25</code></pre>
-</div>
-<div id="arguments" class="section level3">
-<h3>Arguments</h3>
-<p>Each function has added sections of code that lets you specify
-certain aspects of the function. These are called <em>arguments</em>,
-and give you greater control of your output. These are written within
-the brackets of a function and separated by commas.</p>
-<pre class="r"><code>years_old &lt;- 25.765  
-round(years_old, 2) #allows you to specify the rounding to 2 decimal points</code></pre>
-<pre><code>## [1] 25.76</code></pre>
-<pre class="r"><code>args(round) #allows you to query arguments for each function</code></pre>
-<pre><code>## function (x, digits = 0, ...) 
-## NULL</code></pre>
-</div>
-<div id="exercise" class="section level3">
-<h3>Exercise</h3>
-<pre class="r"><code>Kyears_old &lt;- 27
-paste(&quot;Kira is&quot;, Kyears_old, &quot;years old&quot;)</code></pre>
-<pre><code>## [1] &quot;Kira is 27 years old&quot;</code></pre>
-</div>
-</div>
-<div id="debugging" class="section level2">
-<h2>Debugging</h2>
-<div id="misconceptions" class="section level3">
-<h3>Misconceptions</h3>
-<p>Variables in programs do not work the same way as they do in
-spreadsheets</p>
-<pre class="r"><code>grade &lt;- 55 
-total &lt;- grade + 10 
-print(total)</code></pre>
-<pre><code>## [1] 65</code></pre>
-<pre class="r"><code>grade &lt;- 90 
-print(total) # value of total in a spreadsheet will be 100, but in programming a variable holds the value it was assigned (65)</code></pre>
-<pre><code>## [1] 65</code></pre>
-<pre class="r"><code>total &lt;- grade + 10 
-print(total)  # executed in the way it was defined</code></pre>
-<pre><code>## [1] 100</code></pre>
-<p>what will this code do?</p>
-<pre class="r"><code>p &lt;- 2 
-z &lt;- 5
-out &lt;- p * z  # What should the value of out be?
-print(out)  # What is the value of out? Is it the same as expected?</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>#out &lt;- p * a
-# &gt; Error: object &#39;a&#39; not found -&gt; its an undefined variable.
-out &lt;- p * z
-
-# Testing
-x &lt;- 1
-is.character(x)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>is.numeric (x)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-</div>
-<div id="exercise-1" class="section level3">
-<h3>Exercise</h3>
-<pre class="r"><code># Given code
-#my_quiz &lt;- c(&quot;uno&quot;,
-#             &quot;dos&quot;,
-#             &quot;tres&quot;,
-#             &quot;cuatro&quot;   #no comma separating values
-#             &quot;cinco&quot;)
-#print (my_quis) #spelling error, should be my_quiz
-#str(my_quiz) #defines the string type
-#len(my_quiz) #not a real function, assuming its length 
-
-#fixed code
-my_quiz &lt;- c(&quot;uno&quot;,
-             &quot;dos&quot;,
-             &quot;tres&quot;,
-             &quot;cuatro&quot;,
-             &quot;cinco&quot;)
-print (my_quiz)</code></pre>
-<pre><code>## [1] &quot;uno&quot;    &quot;dos&quot;    &quot;tres&quot;   &quot;cuatro&quot; &quot;cinco&quot;</code></pre>
-<pre class="r"><code>str(my_quiz)</code></pre>
-<pre><code>##  chr [1:5] &quot;uno&quot; &quot;dos&quot; &quot;tres&quot; &quot;cuatro&quot; &quot;cinco&quot;</code></pre>
-<pre class="r"><code>length(my_quiz)</code></pre>
-<pre><code>## [1] 5</code></pre>
-</div>
-</div>
-<div id="data-types" class="section level2">
-<h2>Data types</h2>
-<div id="exercise-2" class="section level3">
-<h3>Exercise</h3>
-<pre class="r"><code>my_numeric_variable = 4.2
-class(my_numeric_variable)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>my_character_variable = &quot;word&quot;
-class(my_character_variable)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>my_logical_variable = TRUE
-class(my_logical_variable)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>my_interger_variable = 124L
-class(my_interger_variable)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-</div>
-</div>
-<div id="data-structures" class="section level2">
-<h2>Data structures</h2>
-<pre class="r"><code>y &lt;- c(1, 2, 3) #numerical values in a vector
-z &lt;- c(&quot;Sarah&quot;, &quot;Tracy&quot;, &quot;Jon&quot;) #character  values in a vector
-#NOTE: all the values in a vector are the same type
-
-x &lt;- list(1, &quot;a&quot;, TRUE) #data (list) and can consist of different types of infomation
-x[[2]] #prints the second item in the list</code></pre>
-<pre><code>## [1] &quot;a&quot;</code></pre>
-</div>
-<div id="data-frames-and-tibbles" class="section level2">
-<h2>Data frames and tibbles</h2>
-<pre class="r"><code>my_dataframe &lt;- data.frame(no = c(1,2,3), c(&quot;Tracey&quot;, &quot;John&quot;, &quot;Pete&quot;), c(TRUE, FALSE, TRUE))
-my_dataframe</code></pre>
-<pre><code>##   no c..Tracey....John....Pete.. c.TRUE..FALSE..TRUE.
-## 1  1                      Tracey                 TRUE
-## 2  2                        John                FALSE
-## 3  3                        Pete                 TRUE</code></pre>
-<pre class="r"><code>str(my_dataframe)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    3 obs. of  3 variables:
-##  $ no                         : num  1 2 3
-##  $ c..Tracey....John....Pete..: chr  &quot;Tracey&quot; &quot;John&quot; &quot;Pete&quot;
-##  $ c.TRUE..FALSE..TRUE.       : logi  TRUE FALSE TRUE</code></pre>
-<pre class="r"><code>my_dataframe$no = as.factor(my_dataframe$no)
-str(my_dataframe)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    3 obs. of  3 variables:
-##  $ no                         : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 2 3
-##  $ c..Tracey....John....Pete..: chr  &quot;Tracey&quot; &quot;John&quot; &quot;Pete&quot;
-##  $ c.TRUE..FALSE..TRUE.       : logi  TRUE FALSE TRUE</code></pre>
-</div>
-<div id="packages-and-libraries" class="section level2">
-<h2>Packages and Libraries</h2>
-<pre class="r"><code>#install.packages(&quot;tidyverse&quot;)
+<div id="if_else" class="section level2">
+<h2>if_else</h2>
+<pre class="r"><code># Load tidyverse (if not already loaded)
 library(tidyverse)</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.2.0     ✔ readr     2.2.0
@@ -546,24 +406,218 @@ library(tidyverse)</code></pre>
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>#install.packages(&quot;ggplot2&quot;)
-library(ggplot2)
-#install.packages(&quot;ggplot&quot;,&quot;tidyr&quot;, &quot;earthtones&quot;,&quot;redlistr&quot;,&quot;dplyr&quot; ,&quot;terra&quot;)</code></pre>
+<pre class="r"><code># Sample coral data
+coral_monitoring &lt;- tibble(
+  site = c(&quot;Site_A&quot;, &quot;Site_B&quot;, &quot;Site_C&quot;),
+  depth_m = c(12, 35, 8)
+)
+
+# Classify depth using if_else
+coral_monitoring &lt;- coral_monitoring %&gt;% 
+  mutate(zone = if_else(depth_m &gt; 30, &quot;Deep Reef&quot;, &quot;Shallow Reef&quot;))</code></pre>
+<p>Task: what do you think that function mutate() does? How can we get
+more information about it? What about the %&gt;% symbol? Use your
+developing programmer skills to find out more information about these
+two functions and record your findings now in your qmd.</p>
+<p>Mutate add/modifys a column, in this particular situation it adds a
+column based on whether the depth_m column is greater than 30m. If it
+is, this section of code adds a new data point in the new column (Zone)
+that classifies it as a Deep reef and if it is less than 30m, it is
+classifies it as a shallow reef. The %&gt;% symbol is a pipeline, it
+connects sections of code together.</p>
 </div>
-<div id="coding-best-practices" class="section level2">
-<h2>Coding best practices</h2>
-<div id="exercise-3" class="section level3">
-<h3>Exercise</h3>
-<ol style="list-style-type: decimal">
-<li>Read in the .csv dataset into R</li>
-<li>Filter data by species</li>
-<li>Use ggplot to graph counts</li>
-</ol>
+<div id="case_when" class="section level2">
+<h2>case_when()</h2>
+<pre class="r"><code>coral_monitoring &lt;- coral_monitoring %&gt;% 
+  mutate(reef_category = case_when(
+    depth_m &lt; 10  ~ &quot;Lagoon / Flats&quot;,
+    depth_m &lt;= 30 ~ &quot;Crest / Slope&quot;,
+    depth_m &gt; 30  ~ &quot;Mesophotic / Deep&quot;,
+    TRUE          ~ &quot;Unclassified&quot; # Catch-all remainder
+  ))</code></pre>
+<p>Task: Environmental Stress Classification Using the chattr app or
+inline copilot, your task here is to write an R script that initialises
+a tibble named marine_stations containing a column for salinity with
+values 35, 28, 32, and 12. Use the pipe operator (%&gt;%) and mutate()
+combined with case_when() to create a new column named environment_type.
+Classify values below 15 as “Estuarine”, values between 15 and 30 as
+“Brackish”, and values above 30 as “Marine”. Run your script and verify
+the table structure.</p>
 </div>
+<div id="loops" class="section level2">
+<h2>Loops</h2>
+<pre class="r"><code># Classic loop anatomy
+for (year in 2020:2024) {
+  print(paste(&quot;Processing climate data for year:&quot;, year))
+}</code></pre>
+<pre><code>## [1] &quot;Processing climate data for year: 2020&quot;
+## [1] &quot;Processing climate data for year: 2021&quot;
+## [1] &quot;Processing climate data for year: 2022&quot;
+## [1] &quot;Processing climate data for year: 2023&quot;
+## [1] &quot;Processing climate data for year: 2024&quot;</code></pre>
+<pre class="r"><code># Loop across index sequences
+transect_lengths &lt;- c(50, 100, 25, 75)
+
+for (i in seq_along(transect_lengths)) {
+  print(paste(&quot;Transect number&quot;, i, &quot;measures&quot;, transect_lengths[i], &quot;metres.&quot;))
+}</code></pre>
+<pre><code>## [1] &quot;Transect number 1 measures 50 metres.&quot;
+## [1] &quot;Transect number 2 measures 100 metres.&quot;
+## [1] &quot;Transect number 3 measures 25 metres.&quot;
+## [1] &quot;Transect number 4 measures 75 metres.&quot;</code></pre>
 </div>
-<div id="execute-workshop-1-r-script" class="section level1">
-<h1>Execute Workshop 1 R script</h1>
-<pre class="r"><code>#source(&quot;../Module_01.R&quot;) #reads all the script code from module 1 (found via the file path) and pastes the results here </code></pre>
+<div id="comparison-example-calculating-square-roots-of-site-vectors" class="section level2">
+<h2>Comparison Example: Calculating Square Roots of Site Vectors</h2>
+<p>Using a standard for-loop:</p>
+<pre class="r"><code>site_areas &lt;- c(144, 400, 625)
+results &lt;- numeric(length(site_areas)) # Must build an empty container first
+
+for(i in seq_along(site_areas)){
+  results[i] &lt;- sqrt(site_areas[i])
+}</code></pre>
+<p>Using the purrr equivalent:</p>
+<pre class="r"><code>library(purrr)
+# Map directly and define your expected output type explicitly
+mapped_results &lt;- map_dbl(site_areas, sqrt)</code></pre>
+<p>You can combine purrr pipelines seamlessly inside data frames to
+split analysis across separate groups:</p>
+<pre class="r"><code># Iterate a summary function over split lists of data
+iris %&gt;% 
+  split(.$Species) %&gt;% 
+  map(~summary(.x))</code></pre>
+<pre><code>## $setosa
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.300   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:4.800   1st Qu.:3.200   1st Qu.:1.400   1st Qu.:0.200  
+##  Median :5.000   Median :3.400   Median :1.500   Median :0.200  
+##  Mean   :5.006   Mean   :3.428   Mean   :1.462   Mean   :0.246  
+##  3rd Qu.:5.200   3rd Qu.:3.675   3rd Qu.:1.575   3rd Qu.:0.300  
+##  Max.   :5.800   Max.   :4.400   Max.   :1.900   Max.   :0.600  
+##        Species  
+##  setosa    :50  
+##  versicolor: 0  
+##  virginica : 0  
+##                 
+##                 
+##                 
+## 
+## $versicolor
+##   Sepal.Length    Sepal.Width     Petal.Length   Petal.Width          Species  
+##  Min.   :4.900   Min.   :2.000   Min.   :3.00   Min.   :1.000   setosa    : 0  
+##  1st Qu.:5.600   1st Qu.:2.525   1st Qu.:4.00   1st Qu.:1.200   versicolor:50  
+##  Median :5.900   Median :2.800   Median :4.35   Median :1.300   virginica : 0  
+##  Mean   :5.936   Mean   :2.770   Mean   :4.26   Mean   :1.326                  
+##  3rd Qu.:6.300   3rd Qu.:3.000   3rd Qu.:4.60   3rd Qu.:1.500                  
+##  Max.   :7.000   Max.   :3.400   Max.   :5.10   Max.   :1.800                  
+## 
+## $virginica
+##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.900   Min.   :2.200   Min.   :4.500   Min.   :1.400  
+##  1st Qu.:6.225   1st Qu.:2.800   1st Qu.:5.100   1st Qu.:1.800  
+##  Median :6.500   Median :3.000   Median :5.550   Median :2.000  
+##  Mean   :6.588   Mean   :2.974   Mean   :5.552   Mean   :2.026  
+##  3rd Qu.:6.900   3rd Qu.:3.175   3rd Qu.:5.875   3rd Qu.:2.300  
+##  Max.   :7.900   Max.   :3.800   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    : 0  
+##  versicolor: 0  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+</div>
+<div id="task-using-chattr-chatgpt-at-the-moment" class="section level2">
+<h2>Task using chattr: (ChatGPT at the moment)</h2>
+<p>Use chattr to convert a complex operation. Prompt the engine: “I have
+a list of three vectors containing fish count data. Write a for-loop to
+calculate the mean of each, and then show me the exact parallel way to
+do it using purrr’s map_dbl function.” Compare the visual simplicity.
+The code given is below</p>
+<pre class="r"><code># Example fish count vectors
+fish1 &lt;- c(12, 15, 18, 20)
+fish2 &lt;- c(5, 7, 9, 6)
+fish3 &lt;- c(30, 28, 35, 40)
+
+# Put them into a list
+fish_counts &lt;- list(fish1, fish2, fish3)
+
+# Empty vector to store means
+mean_counts &lt;- numeric(length(fish_counts))
+
+# For-loop
+for(i in seq_along(fish_counts)) {
+  mean_counts[i] &lt;- mean(fish_counts[[i]])
+}
+
+mean_counts</code></pre>
+<pre><code>## [1] 16.25  6.75 33.25</code></pre>
+<pre class="r"><code># For Purrr 
+library(purrr)
+
+mean_countsP &lt;- map_dbl(fish_counts, mean)
+
+mean_countsP</code></pre>
+<pre><code>## [1] 16.25  6.75 33.25</code></pre>
+<p>4.5 Writing custom functions When you find yourself copying and
+pasting the exact same block of logical code or loop transformations
+three or more times, it is time to write a custom function. Functions
+package your logic into clear, named, reusable assets. Function
+Construction Blueprint A function consists of a Name, Arguments (the
+input variables), and a Body (the execution logic wrapped inside curly
+braces).</p>
+<pre class="r"><code># Function Definition
+calculate_coral_mortality &lt;- function(initial_count, surviving_count) {
+  
+  # Logic safety switch using our conditional tools!
+  if (initial_count &lt;= 0) {
+    stop(&quot;Initial count must be greater than zero.&quot;)
+  }
+  
+  mortality_rate &lt;- (initial_count - surviving_count) / initial_count
+  return(mortality_rate)
+}
+
+# Utilizing your custom function
+calculate_coral_mortality(initial_count = 120, surviving_count = 84)</code></pre>
+<pre><code>## [1] 0.3</code></pre>
+<p>Best Practice Rule: Always test your functions in a clean local
+environment. Ensure they rely strictly on the arguments passed directly
+into them, rather than accidentally grabbing random background objects
+floating in your global R environment.</p>
+<p>Student Exercise 4: Custom Function Construction Task Build a custom
+function named convert_temp_c_to_f that accepts a single argument
+representing temperature in Celsius. The function should perform the
+math conversion: F = (C * 9/5) + 32. Include a conditional safety check
+using an if statement that halts execution via stop() if the entered
+value is below absolute zero (-273.15 degrees Celsius). Test your
+function with both a valid temperature and an invalid value to ensure
+the error handling behaves as expected.</p>
+<p>4.6 Advanced Scripting Extension Challenges For anyone seeking an
+extra challenge, apply your structural programming tools to execute
+these two advanced production pipelines.</p>
+<p>Challenge 1: Nested Multi-Vector Iteration In real-world field
+surveys, calculations often depend on matching values across multiple
+lists or matrices. Read the documentation for purrr::map2_dbl(). Given a
+vector of raw survey counts counts &lt;- c(15, 24, 8, 42) and a vector
+of species-specific scaling factors factors &lt;- c(1.2, 0.8, 2.5, 1.1),
+write a mapping statement that iterates across both vectors
+simultaneously to return a single vector of scaled abundance values. Do
+not use a manual index loop.</p>
+<p>Challenge 2: The Robust Data Wrangling Pipeline Function Create a
+custom function named clean_and_classify_survey that handles complex
+data frame structures. The function must fulfill these criteria:</p>
+<p>Accept a data frame and a column name threshold parameter as inputs.
+Safely check if the specified column name exists within the passed data
+frame; if it does not, trigger a user-friendly error message using
+stop().</p>
+<p>Filter out rows containing missing values (NA) within that specific
+column. Use the pipe operator and mutate() along with a vectorised
+conditional (if_else() or case_when()) to append a status string
+variable classification based on your threshold parameter.</p>
+<p>Return the cleaned, altered data frame to the global environment.
+Test your custom pipeline using a mock tibble that contains at least one
+missing value to confirm your code handles anomalies without
+crashing.</p>
 </div>
 
 
