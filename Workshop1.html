@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-05-20" />
 
-<title>Workshop 01. Introduction</title>
+<title>Workshop 01. The Introduction</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,25 +350,22 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Workshop 01. Introduction</h1>
+<h1 class="title toc-ignore">Workshop 01. The Introduction</h1>
 <h4 class="author">Kira Roberts</h4>
 <h4 class="date">2026-05-20</h4>
 
 </div>
 
 
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<div id="workspace-d1techniquesprograming_introprograming_intro.rproj" class="section level4">
-<h4>Workspace:
-D:/1Techniques/Programing_intro/Programing_intro.Rproj</h4>
-<p>This document contains the code needed for the first workshop in the
+<p>This page contains the code needed for the first workshop in the
 MB5370 “Introduction to Programming” module</p>
 <p>This workshop focuses on understanding the RStudio environment, basic
 syntax and some of the best practices in coding. This includes building
 an understanding on how data is stored in R and why this matters, we
 will do this through writing simple code and exploring bugged code.</p>
-</div>
+<div id="workspace-d1techniquesprograming_introprograming_intro.rproj" class="section level4">
+<h4>Workspace:
+D:/1Techniques/Programing_intro/Programing_intro.Rproj</h4>
 </div>
 <div id="objects-functions-and-arguments" class="section level2">
 <h2>Objects, Functions and Arguments</h2>
@@ -383,8 +380,8 @@ in the environment in this way allows you to easily call it back later.
 To save data in this way, we use an <em>assignment operator</em> which
 looks like an arrow pointing to the left ( &lt;- ). This takes
 everything on the right hand side and stores it in the object on the
-left. This operator uses the shortcut: “alt” + “-”. What we see below is
-just 4 ways this can be utilized.</p>
+left. This operator uses the shortcut: “alt” + “-”.</p>
+<p>What we see below is just 4 ways this can be utilized.</p>
 <pre class="r"><code>age &lt;- 25   #assigns the value of 25 to the variable &quot;age&quot;
 
 first_name &lt;- &#39;Bill&#39;  #assigns the character value &quot;Bill&quot; to the object &quot;first_name&quot;
@@ -397,8 +394,8 @@ fish_lengths &lt;- c(124, 152, 98, 221, 146) #saves the vector of multiple fish 
 <h3>Functions</h3>
 <p>One of the more powerful aspects of the programming languages used in
 R, is that they come equipped with many built-in <em>functions</em>.
-These allow you to perform many different tasks. Link to all of R’s
-built in functions: “<a href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html" class="uri">https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html</a>”</p>
+These allow you to perform many different tasks. You can see all of R’s
+built in functions using this link: “<a href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html" class="uri">https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html</a>”</p>
 <pre class="r"><code>years_old &lt;- 25.7 
 round(years_old) #rounds up</code></pre>
 <pre><code>## [1] 26</code></pre>
@@ -417,20 +414,28 @@ round(years_old, 2) #allows you to specify the rounding to 2 decimal points</cod
 <pre class="r"><code>args(round) #allows you to query arguments for each function</code></pre>
 <pre><code>## function (x, digits = 0, ...) 
 ## NULL</code></pre>
-</div>
-<div id="exercise" class="section level3">
-<h3>Exercise</h3>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<p>Using an object, print your name and age using the
+<strong>paste</strong> function.</p>
 <pre class="r"><code>Kyears_old &lt;- 27
 paste(&quot;Kira is&quot;, Kyears_old, &quot;years old&quot;)</code></pre>
 <pre><code>## [1] &quot;Kira is 27 years old&quot;</code></pre>
 </div>
 </div>
+</div>
 <div id="debugging" class="section level2">
 <h2>Debugging</h2>
+<p>Debugging is one of the biggest jobs for professional coders, often
+consuming 40-60% of their time, as such it is one of the most important
+skills to learn in coding. Debugging is the process of finding and
+fixing bugs (errors) in the code.</p>
 <div id="misconceptions" class="section level3">
 <h3>Misconceptions</h3>
 <p>Variables in programs do not work the same way as they do in
-spreadsheets</p>
+spreadsheets. They can be redefined (grade) or not (total) later in your
+code, this may cause the results you get to be different from what you
+expect. We can see this below.</p>
 <pre class="r"><code>grade &lt;- 55 
 total &lt;- grade + 10 
 print(total)</code></pre>
@@ -441,25 +446,21 @@ print(total) # value of total in a spreadsheet will be 100, but in programming a
 <pre class="r"><code>total &lt;- grade + 10 
 print(total)  # executed in the way it was defined</code></pre>
 <pre><code>## [1] 100</code></pre>
-<p>what will this code do?</p>
+<p>The following code shows values being assigned before being put in an
+equation and the output being given. It should run.</p>
 <pre class="r"><code>p &lt;- 2 
 z &lt;- 5
 out &lt;- p * z  # What should the value of out be?
 print(out)  # What is the value of out? Is it the same as expected?</code></pre>
 <pre><code>## [1] 10</code></pre>
-<pre class="r"><code>#out &lt;- p * a
-# &gt; Error: object &#39;a&#39; not found -&gt; its an undefined variable.
-out &lt;- p * z
-
-# Testing
-x &lt;- 1
-is.character(x)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>is.numeric (x)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-</div>
-<div id="exercise-1" class="section level3">
-<h3>Exercise</h3>
+<p>But this code, hides an error. We were given the error message
+“Error: object ‘a’ not found -&gt; its an undefined variable”. We can
+use the above code to fix it.</p>
+<pre class="r"><code>#out &lt;- p * a           #error code, commented out
+out &lt;- p * z            #fixed code</code></pre>
+<div id="exercise-1" class="section level4">
+<h4>Exercise</h4>
+<p>You are given some code, but it wont run. Debug it.</p>
 <pre class="r"><code># Given code
 #my_quiz &lt;- c(&quot;uno&quot;,
 #             &quot;dos&quot;,
@@ -484,10 +485,31 @@ print (my_quiz)</code></pre>
 <pre><code>## [1] 5</code></pre>
 </div>
 </div>
-<div id="data-types" class="section level2">
-<h2>Data types</h2>
-<div id="exercise-2" class="section level3">
-<h3>Exercise</h3>
+</div>
+<div id="data-types-and-structures" class="section level2">
+<h2>Data Types and Structures</h2>
+<div id="checking-data-types" class="section level3">
+<h3>Checking Data types</h3>
+<p>Sometimes it can be useful to check whether your data has been read
+in correctly and if it is a number - that R recognizes that. The
+following shows two functions that can help determine what R sees your
+vector is.</p>
+<pre class="r"><code>x &lt;- 1
+is.character(x)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is.numeric (x)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>As well as allowing you to see specifically if your object is a
+character or numeric, R allows us to determine if the variable is:
+<strong>Numeric (numeric / double)</strong>: Continuous decimals (e.g.,
+pH levels: 8.1, 7.95).<br />
+<strong>Integer (integer)</strong>: Whole numbers (e.g., count of sea
+turtles spotted: 5L). <strong>Character (character)</strong>: Text
+strings enclosed in quotation marks (e.g., species name: “Acanthaster
+planci”). <strong>Logical (logical)</strong>: Boolean values that are
+either TRUE or FALSE (e.g., Bleaching observed: TRUE).</p>
+<div id="exercise-2" class="section level4">
+<h4>Exercise</h4>
 <pre class="r"><code>my_numeric_variable = 4.2
 class(my_numeric_variable)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -502,8 +524,13 @@ class(my_interger_variable)</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 </div>
 </div>
-<div id="data-structures" class="section level2">
-<h2>Data structures</h2>
+<div id="data-structures" class="section level3">
+<h3>Data structures</h3>
+<p>A vector is the most common data structure seen in R. It is a
+collection of elements but they all must be of the same type. Lists are
+similar but can be made up of different types. In both data structures,
+you can retrieve individual elements using double square brackets to
+reference their index.</p>
 <pre class="r"><code>y &lt;- c(1, 2, 3) #numerical values in a vector
 z &lt;- c(&quot;Sarah&quot;, &quot;Tracy&quot;, &quot;Jon&quot;) #character  values in a vector
 #NOTE: all the values in a vector are the same type
@@ -512,8 +539,14 @@ x &lt;- list(1, &quot;a&quot;, TRUE) #data (list) and can consist of different t
 x[[2]] #prints the second item in the list</code></pre>
 <pre><code>## [1] &quot;a&quot;</code></pre>
 </div>
-<div id="data-frames-and-tibbles" class="section level2">
-<h2>Data frames and tibbles</h2>
+<div id="data-frames-and-tibbles" class="section level3">
+<h3>Data frames and tibbles</h3>
+<p>Many of us have used spreadsheets before, these rectangular data
+files are called <em>data frames</em> in R. They store data in the same
+format as excel spreadsheets with rows and columns. Each column can only
+hold elements of the same type. They can be imported as
+<strong>.csv</strong> or <strong>.xlsx</strong> files, or you can build
+one using lists like seen below.</p>
 <pre class="r"><code>my_dataframe &lt;- data.frame(no = c(1,2,3), c(&quot;Tracey&quot;, &quot;John&quot;, &quot;Pete&quot;), c(TRUE, FALSE, TRUE))
 my_dataframe</code></pre>
 <pre><code>##   no c..Tracey....John....Pete.. c.TRUE..FALSE..TRUE.
@@ -525,6 +558,10 @@ my_dataframe</code></pre>
 ##  $ no                         : num  1 2 3
 ##  $ c..Tracey....John....Pete..: chr  &quot;Tracey&quot; &quot;John&quot; &quot;Pete&quot;
 ##  $ c.TRUE..FALSE..TRUE.       : logi  TRUE FALSE TRUE</code></pre>
+<p>R usually makes a guess at the variable type, sometimes it gets it
+right sometimes not. So it’s usually a good habit to check it. If it
+gets it wrong you can change it. The code below takes the “no” column
+and changes it from a numeric type to a factor.</p>
 <pre class="r"><code>my_dataframe$no = as.factor(my_dataframe$no)
 str(my_dataframe)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    3 obs. of  3 variables:
@@ -532,38 +569,21 @@ str(my_dataframe)</code></pre>
 ##  $ c..Tracey....John....Pete..: chr  &quot;Tracey&quot; &quot;John&quot; &quot;Pete&quot;
 ##  $ c.TRUE..FALSE..TRUE.       : logi  TRUE FALSE TRUE</code></pre>
 </div>
+</div>
 <div id="packages-and-libraries" class="section level2">
 <h2>Packages and Libraries</h2>
-<pre class="r"><code>#install.packages(&quot;tidyverse&quot;)
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.2.0     ✔ readr     2.2.0
-## ✔ forcats   1.0.1     ✔ stringr   1.5.1
-## ✔ ggplot2   4.0.2     ✔ tibble    3.3.0
-## ✔ lubridate 1.9.5     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.4     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>#install.packages(&quot;ggplot2&quot;)
+<p>To use R packages you must first download or install them, if your
+machine has already installed them then you’ll need to load them for
+every session. The following downloads and installs several packages but
+the installation code has been commented out so that the knitting
+process will work.</p>
+<pre><code>#install.packages(&quot;tidyverse&quot;)
+library(tidyverse)
+
+#install.packages(&quot;ggplot2&quot;)
 library(ggplot2)
+
 #install.packages(&quot;ggplot&quot;,&quot;tidyr&quot;, &quot;earthtones&quot;,&quot;redlistr&quot;,&quot;dplyr&quot; ,&quot;terra&quot;)</code></pre>
-</div>
-<div id="coding-best-practices" class="section level2">
-<h2>Coding best practices</h2>
-<div id="exercise-3" class="section level3">
-<h3>Exercise</h3>
-<ol style="list-style-type: decimal">
-<li>Read in the .csv dataset into R</li>
-<li>Filter data by species</li>
-<li>Use ggplot to graph counts</li>
-</ol>
-</div>
-</div>
-<div id="execute-workshop-1-r-script" class="section level1">
-<h1>Execute Workshop 1 R script</h1>
-<pre class="r"><code>#source(&quot;../Module_01.R&quot;) #reads all the script code from module 1 (found via the file path) and pastes the results here </code></pre>
 </div>
 
 
