@@ -1,5 +1,5 @@
 ---
-title: "Workshop 01. Introduction"
+title: "Workshop 01. The Introduction"
 author: "Kira Roberts"
 date: "2026-05-20"
 output: html_document
@@ -9,13 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Introduction
-
-#### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
-
-This document contains the code needed for the first workshop in the MB5370 "Introduction to Programming" module
+This page contains the code needed for the first workshop in the MB5370 "Introduction to Programming" module
 
 This workshop focuses on understanding the RStudio environment, basic syntax and some of the best practices in coding. This includes building an understanding on how data is stored in R and why this matters, we will do this through writing simple code and exploring bugged code.
+
+#### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
 
 ## Objects, Functions and Arguments
 
@@ -24,6 +22,8 @@ At it's simplest, R (and by default RStudio) can act as a calculator for simple 
 ### Objects and the Assignment Operator
 
 Programming languages allow you to store things as *objects*, or as they're sometimes called *variables*. Storing information in the environment in this way allows you to easily call it back later. To save data in this way, we use an *assignment operator* which looks like an arrow pointing to the left ( <- ). This takes everything on the right hand side and stores it in the object on the left. This operator uses the shortcut: "alt" + "-".
+
+
 What we see below is just 4 ways this can be utilized. 
  
 ```{r}
@@ -38,7 +38,7 @@ fish_lengths <- c(124, 152, 98, 221, 146) #saves the vector of multiple fish len
 
 ### Functions
 
-One of the more powerful aspects of the programming languages used in R, is that they come equipped with many built-in *functions*. These allow you to perform many different tasks. Link to all of R's built in functions: "<https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html>"
+One of the more powerful aspects of the programming languages used in R, is that they come equipped with many built-in *functions*. These allow you to perform many different tasks. You can see all of R's built in functions using this link: "<https://stat.ethz.ch/R-manual/R-patched/library/base/html/00Index.html>"
 
 ```{r}
 years_old <- 25.7 
@@ -56,8 +56,8 @@ round(years_old, 2) #allows you to specify the rounding to 2 decimal points
 args(round) #allows you to query arguments for each function
 ```
 
-### Exercise
-
+#### Exercise
+Using an object, print your name and age using the **paste** function.
 ```{r exercise1}
 Kyears_old <- 27
 paste("Kira is", Kyears_old, "years old")
@@ -65,42 +65,38 @@ paste("Kira is", Kyears_old, "years old")
 
 ## Debugging
 
+Debugging is one of the biggest jobs for professional coders, often consuming 40-60% of their time, as such it is one of the most important skills to learn in coding. Debugging is the process of finding and fixing bugs (errors) in the code. 
+
 ### Misconceptions
 
-Variables in programs do not work the same way as they do in spreadsheets
+Variables in programs do not work the same way as they do in spreadsheets. They can be redefined (grade) or not (total) later in your code, this may cause the results you get to be different from what you expect. We can see this below.   
 
 ```{r misconceptions}
 grade <- 55 
 total <- grade + 10 
 print(total)
+
 grade <- 90 
 print(total) # value of total in a spreadsheet will be 100, but in programming a variable holds the value it was assigned (65)
+
 total <- grade + 10 
 print(total)  # executed in the way it was defined
 ```
-
-what will this code do?
-
+The following code shows values being assigned before being put in an equation and the output being given. It should run.
 ```{r test}
 p <- 2 
 z <- 5
 out <- p * z  # What should the value of out be?
 print(out)  # What is the value of out? Is it the same as expected?
 ```
-
+But this code, hides an error. We were given the error message "Error: object 'a' not found -> its an undefined variable". We can use the above code to fix it. 
 ```{r, Debugging errors}
-#out <- p * a
-# > Error: object 'a' not found -> its an undefined variable.
-out <- p * z
-
-# Testing
-x <- 1
-is.character(x)
-is.numeric (x)
+#out <- p * a           #error code, commented out
+out <- p * z            #fixed code
 ```
 
-### Exercise
-
+#### Exercise
+You are given some code, but it wont run. Debug it. 
 ```{r exercise2}
 # Given code
 #my_quiz <- c("uno",
@@ -123,10 +119,24 @@ str(my_quiz)
 length(my_quiz)
 ```
 
-## Data types
 
-### Exercise
 
+## Data Types and Structures
+### Checking Data types
+Sometimes it can be useful to check whether your data has been read in correctly and if it is a number - that R recognizes that. The following shows two functions that can help determine what R sees your vector is. 
+```{r, Debugging errors}
+x <- 1
+is.character(x)
+is.numeric (x)
+```
+
+As well as allowing you to see specifically if your object is a character or numeric, R allows us to determine if the variable is:
+**Numeric (numeric / double)**: Continuous decimals (e.g., pH levels: 8.1, 7.95).  
+**Integer (integer)**: Whole numbers (e.g., count of sea turtles spotted: 5L). 
+**Character (character)**: Text strings enclosed in quotation marks (e.g., species name: "Acanthaster planci"). 
+**Logical (logical)**: Boolean values that are either TRUE or FALSE (e.g., Bleaching observed: TRUE).
+
+#### Exercise
 ```{r exercise3}
 my_numeric_variable = 4.2
 class(my_numeric_variable)
@@ -141,8 +151,8 @@ my_interger_variable = 124L
 class(my_interger_variable)
 ```
 
-## Data structures
-
+### Data structures
+A vector is the most common data structure seen in R. It is a collection of elements but they all must be of the same type. Lists are similar but can be made up of different types. In both data structures, you can retrieve individual elements using double square brackets to reference their index.
 ```{r}
 y <- c(1, 2, 3) #numerical values in a vector
 z <- c("Sarah", "Tracy", "Jon") #character  values in a vector
@@ -153,37 +163,28 @@ x[[2]] #prints the second item in the list
 
 ```
 
-## Data frames and tibbles
-
+### Data frames and tibbles
+Many of us have used spreadsheets before, these rectangular data files are called *data frames* in R. They store data in the same format as excel spreadsheets with rows and columns. Each column can only hold elements of the same type. They can be imported as **.csv** or **.xlsx** files, or you can build one using lists like seen below. 
 ```{r}
 my_dataframe <- data.frame(no = c(1,2,3), c("Tracey", "John", "Pete"), c(TRUE, FALSE, TRUE))
 my_dataframe
 str(my_dataframe)
+```
 
+R usually makes a guess at the variable type, sometimes it gets it right sometimes not. So it's usually a good habit to check it. If it gets it wrong you can change it. The code below takes the "no" column and changes it from a numeric type to a factor. 
+```{r}
 my_dataframe$no = as.factor(my_dataframe$no)
 str(my_dataframe)
 ```
 
 ## Packages and Libraries
-
+To use R packages you must first download or install them, if your machine has already installed them then you'll need to load them for every session. The following downloads and installs several packages but the installation code has been commented out so that the knitting process will work. 
 ```{r}
 #install.packages("tidyverse")
 library(tidyverse)
+
 #install.packages("ggplot2")
 library(ggplot2)
+
 #install.packages("ggplot","tidyr", "earthtones","redlistr","dplyr" ,"terra")
-```
-
-## Coding best practices
-
-### Exercise
-
-1.  Read in the .csv dataset into R
-2.  Filter data by species
-3.  Use ggplot to graph counts
-
-# Execute Workshop 1 R script
-
-```{r}
-#source("../Module_01.R") #reads all the script code from module 1 (found via the file path) and pastes the results here 
 ```
