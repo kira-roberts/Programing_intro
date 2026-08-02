@@ -15,13 +15,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This document contains the code needed for the third workshop in the MB5370 "Introduction to Programming" module.
 
+Repositories are an essential part of maintaining transparency when working with data. It allows other researchers to view your raw data and the process in which your data was analysed. It can also allow others to use your code for their own projects. Having a repository also  allows you to be able to access your projecy any where you have an internet connection. 
+
 The majority of this workshop was dedicated to setting up and linking a project to a repository in GitHub. The following is a record of what was undertaken and the code necessary for this. Most code was run through the console with some exceptions in the terminal. This file should not be run as is.
+
 
 ## Setting up Git
 The first task needed to be completed was to ensure Git has been installed on the computer. We can check this by using "which git" in the terminal. 
 
-Once this has been installed you now need to check that everything is talking to each other. In the console you must install the "usethis" package and then check credentials.   
-
+Once this has been installed you now need to check that everything is talking to each other. In the console you must install the "usethis" package and then check credentials.
 
 ```
 install.packages("usethis") #allows us to use the following code
@@ -30,4 +32,21 @@ credentials::git_credential_ask() #confirms that you are connected and that git 
 
 usethis::git_sitrep() #
 ```
+
+## Creating a Repository 
+For this workshop we cloned the class repository from GitHub, but you can also create new repositories. Any public repository, and the code within it, on GitHub can be cloned using these steps. 
+1.  Have a suitable folder on your computer to store your data analysis work. 
+2.  In GitHub, copy the address (HTML or SSH key) of the repository that you want to clone.
+3.  In R Studio, create a new project using *File -> New Project*
+  3a. Select *Version Control*
+  3b. Select *Git* 
+4. In the following pop-up, you can enter the address that you copied in GitHub. Hitting tab should auto-populate the directory name fo you.
+  4a. Using the *Create Sub-directory* section of this popup, select the path to your folder that was created in step 1. 
+5. Finally, check that everything worked. If all has been successful, there should be a *Git* tab over in your environment. 
+
+
+
+## Troubleshooting 
+Initially, I attempted to save this project via USB and complete it on the University computers as I have usually done with my coding (the larger screens were better to use and the USB allowed me to take them home for use on my personal computer). However, this caused issues where the Git tab was not showing up despite following all the steps. I am still not 100% certain as to what caused this issue but it was resolved when I switched to my personal computer and followed the process again. 
+
 

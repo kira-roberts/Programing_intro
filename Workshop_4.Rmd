@@ -1,0 +1,206 @@
+---
+title: "Workshop 04. The Developer's Toolbox & AI"
+author: "Kira Roberts"
+date: "2026-05-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+#### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
+
+This document contains the code needed for the fourth workshop in the MB5370 "Introduction to Programming" module.
+The following is a record of what was undertaken and the code necessary for this. Most code was run through the console with some exceptions in the terminal. This file should not be run as is.
+
+## Copilot 
+
+
+
+## Chattr 
+
+
+#install.packages("ellmer")
+#install.packages("chattr")
+#usethis::edit_r_environ()
+#usethis::edit_r_profile()
+
+
+#set shortcut to open chat to "ctrl + alt + c" 
+
+
+## if and else
+```{r}
+# Simple Example: Checking Sea Surface Temperature (SST)
+
+sst <- 30.2
+
+if (sst > 29.5) {
+  print("Warning: Marine heatwave threshold exceeded!")
+} else {
+  print("SST remains within baseline parameters.")
+}
+```
+
+
+
+## if_else
+```{r}
+# Load tidyverse (if not already loaded)
+library(tidyverse)
+
+# Sample coral data
+coral_monitoring <- tibble(
+  site = c("Site_A", "Site_B", "Site_C"),
+  depth_m = c(12, 35, 8)
+)
+
+# Classify depth using if_else
+coral_monitoring <- coral_monitoring %>% 
+  mutate(zone = if_else(depth_m > 30, "Deep Reef", "Shallow Reef"))
+
+```
+Task: what do you think that function mutate()  does? How can we get more information about it? What about the %>% symbol? Use your developing programmer skills to find out more information about these two functions and record your findings now in your qmd.
+
+Mutate add/modifys a column, in this particular situation it adds a column based on whether the depth_m column is greater than 30m. If it is, this section of code adds a new data point in the new column (Zone) that classifies it as a Deep reef and if it is less than 30m, it is classifies it as a shallow reef. The %>% symbol is a pipeline, it connects sections of code together. 
+
+## case_when()
+```{r}
+coral_monitoring <- coral_monitoring %>% 
+  mutate(reef_category = case_when(
+    depth_m < 10  ~ "Lagoon / Flats",
+    depth_m <= 30 ~ "Crest / Slope",
+    depth_m > 30  ~ "Mesophotic / Deep",
+    TRUE          ~ "Unclassified" # Catch-all remainder
+  ))
+
+```
+Task:  Environmental Stress Classification
+Using the chattr app or inline copilot, your task here is to write an R script that initialises a tibble named marine_stations containing a column for salinity with values 35, 28, 32, and 12. Use the pipe operator (%>%) and mutate() combined with case_when() to create a new column named environment_type. Classify values below 15 as "Estuarine", values between 15 and 30 as "Brackish", and values above 30 as "Marine". Run your script and verify the table structure.
+
+
+## Loops
+```{r}
+# Classic loop anatomy
+for (year in 2020:2024) {
+  print(paste("Processing climate data for year:", year))
+}
+
+```
+
+```{r}
+# Loop across index sequences
+transect_lengths <- c(50, 100, 25, 75)
+
+for (i in seq_along(transect_lengths)) {
+  print(paste("Transect number", i, "measures", transect_lengths[i], "metres."))
+}
+
+```
+
+## Comparison Example: Calculating Square Roots of Site Vectors
+Using a standard for-loop:
+```{r}
+site_areas <- c(144, 400, 625)
+results <- numeric(length(site_areas)) # Must build an empty container first
+
+for(i in seq_along(site_areas)){
+  results[i] <- sqrt(site_areas[i])
+}
+```
+
+Using the purrr equivalent:
+```{r}
+library(purrr)
+# Map directly and define your expected output type explicitly
+mapped_results <- map_dbl(site_areas, sqrt)
+
+```
+
+You can combine purrr pipelines seamlessly inside data frames to split analysis across separate groups:
+```{r}
+# Iterate a summary function over split lists of data
+iris %>% 
+  split(.$Species) %>% 
+  map(~summary(.x))
+```
+## Task using chattr: (ChatGPT at the moment)
+
+Use chattr to convert a complex operation. Prompt the engine: "I have a list of three vectors containing fish count data. Write a for-loop to calculate the mean of each, and then show me the exact parallel way to do it using purrr's map_dbl function." Compare the visual simplicity. The code given is below
+```{r}
+# Example fish count vectors
+fish1 <- c(12, 15, 18, 20)
+fish2 <- c(5, 7, 9, 6)
+fish3 <- c(30, 28, 35, 40)
+
+# Put them into a list
+fish_counts <- list(fish1, fish2, fish3)
+
+# Empty vector to store means
+mean_counts <- numeric(length(fish_counts))
+
+# For-loop
+for(i in seq_along(fish_counts)) {
+  mean_counts[i] <- mean(fish_counts[[i]])
+}
+
+mean_counts
+
+# For Purrr 
+library(purrr)
+
+mean_countsP <- map_dbl(fish_counts, mean)
+
+mean_countsP
+```
+
+4.5 Writing custom functions
+When you find yourself copying and pasting the exact same block of logical code or loop transformations three or more times, it is time to write a custom function. Functions package your logic into clear, named, reusable assets.
+Function Construction Blueprint
+A function consists of a Name, Arguments (the input variables), and a Body (the execution logic wrapped inside curly braces).
+
+
+```{r}
+# Function Definition
+calculate_coral_mortality <- function(initial_count, surviving_count) {
+  
+  # Logic safety switch using our conditional tools!
+  if (initial_count <= 0) {
+    stop("Initial count must be greater than zero.")
+  }
+  
+  mortality_rate <- (initial_count - surviving_count) / initial_count
+  return(mortality_rate)
+}
+
+# Utilizing your custom function
+calculate_coral_mortality(initial_count = 120, surviving_count = 84)
+
+```
+
+Best Practice Rule: Always test your functions in a clean local environment. Ensure they rely strictly on the arguments passed directly into them, rather than accidentally grabbing random background objects floating in your global R environment.
+
+Student Exercise 4: Custom Function Construction Task
+Build a custom function named convert_temp_c_to_f that accepts a single argument representing temperature in Celsius. The function should perform the math conversion: F = (C * 9/5) + 32. Include a conditional safety check using an if statement that halts execution via stop() if the entered value is below absolute zero (-273.15 degrees Celsius). Test your function with both a valid temperature and an invalid value to ensure the error handling behaves as expected.
+
+4.6 Advanced Scripting Extension Challenges
+For anyone seeking an extra challenge, apply your structural programming tools to execute these two advanced production pipelines.
+
+Challenge 1: Nested Multi-Vector Iteration
+In real-world field surveys, calculations often depend on matching values across multiple lists or matrices. Read the documentation for purrr::map2_dbl(). Given a vector of raw survey counts counts <- c(15, 24, 8, 42) and a vector of species-specific scaling factors factors <- c(1.2, 0.8, 2.5, 1.1), write a mapping statement that iterates across both vectors simultaneously to return a single vector of scaled abundance values. Do not use a manual index loop.
+
+Challenge 2: The Robust Data Wrangling Pipeline Function
+Create a custom function named clean_and_classify_survey that handles complex data frame structures. The function must fulfill these criteria:
+
+Accept a data frame and a column name threshold parameter as inputs.
+Safely check if the specified column name exists within the passed data frame; if it does not, trigger a user-friendly error message using stop().
+
+Filter out rows containing missing values (NA) within that specific column.
+Use the pipe operator and mutate() along with a vectorised conditional (if_else() or case_when()) to append a status string variable classification based on your threshold parameter.
+
+Return the cleaned, altered data frame to the global environment.
+Test your custom pipeline using a mock tibble that contains at least one missing value to confirm your code handles anomalies without crashing.
+
