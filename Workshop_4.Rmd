@@ -14,22 +14,41 @@ knitr::opts_chunk$set(echo = TRUE)
 #### Workspace: D:/1Techniques/Programing_intro/Programing_intro.Rproj
 
 This document contains the code needed for the fourth workshop in the MB5370 "Introduction to Programming" module.
-The following is a record of what was undertaken and the code necessary for this. Most code was run through the console with some exceptions in the terminal. This file should not be run as is.
+
+With the rise of AI tools and their strong ability to aid in coding, this workshop looked at integrating AI into our systems. AI helps handle the syntax aspect of coding, which allows us to focus on the biological and statistical logic of our work. We integrated *GitHub Copilot* for an in code auto-completer, and *chattr* to help with troubleshooting. 
+
+The following is a record of what was undertaken and any code necessary for this. Most code was run through the console with some exceptions in the terminal. This file should not be run as is.
 
 ## Copilot 
+As students, GitHub allows us free access to their Copilot as part of their educational program but outside of this, it is a paid service. But once linked to your account, activating it in RStudio is quick and easy. Under the *Tools* tab at the top, select *Global Options* then *Assistant*. 
+From there you can sign in and copy over the verification code that is provided.A GitHub authorization window will open in your browser, and you must paste the code you copied there. 
+After this you can should now have it installed. You can toggle it on and off through the same assistant tab from before.
 
+### Using Predictive Text 
+Using the Palmer Penguins dataset and Copilots predictive text, we will revisit some of the visualization techniques from the second workshop. 
+
+With copilot active, enter the following commands, accepting the promts 
+# Load tidyverse and palmerpenguins libraries
+# Create a ggplot scatter plot using the penguins dataset. 
+# Plot bill_length_mm on the x-axis and bill_depth_mm on the y-axis. 
+# Color points by species and use geom_point with size 3. 
+# Add a minimal theme and clean labels.
+# Ggenerate a boxplot that compares flipper_length_mm across the different species. Facet this by island, using custom color palettes.
+```{r}
+# Load tidyverse and palmerpenguins libraries
+
+
+```
 
 
 ## Chattr 
-
-
-#install.packages("ellmer")
-#install.packages("chattr")
-#usethis::edit_r_environ()
-#usethis::edit_r_profile()
-
-
-#set shortcut to open chat to "ctrl + alt + c" 
+```r
+install.packages("ellmer")
+install.packages("chattr")
+usethis::edit_r_environ()
+usethis::edit_r_profile()
+``` 
+set shortcut to open chat to "ctrl + alt + c" 
 
 
 ## if and else
@@ -79,7 +98,7 @@ coral_monitoring <- coral_monitoring %>%
 
 ```
 Task:  Environmental Stress Classification
-Using the chattr app or inline copilot, your task here is to write an R script that initialises a tibble named marine_stations containing a column for salinity with values 35, 28, 32, and 12. Use the pipe operator (%>%) and mutate() combined with case_when() to create a new column named environment_type. Classify values below 15 as "Estuarine", values between 15 and 30 as "Brackish", and values above 30 as "Marine". Run your script and verify the table structure.
+*Using the chattr app or inline copilot, your task here is to write an R script that initialises a tibble named marine_stations containing a column for salinity with values 35, 28, 32, and 12. Use the pipe operator (%>%) and mutate() combined with case_when() to create a new column named environment_type. Classify values below 15 as "Estuarine", values between 15 and 30 as "Brackish", and values above 30 as "Marine". Run your script and verify the table structure.*
 
 
 ## Loops
@@ -127,9 +146,9 @@ iris %>%
   split(.$Species) %>% 
   map(~summary(.x))
 ```
-## Task using chattr: (ChatGPT at the moment)
-
-Use chattr to convert a complex operation. Prompt the engine: "I have a list of three vectors containing fish count data. Write a for-loop to calculate the mean of each, and then show me the exact parallel way to do it using purrr's map_dbl function." Compare the visual simplicity. The code given is below
+## Task using chattr: 
+*Use chattr to convert a complex operation. Prompt the engine: "I have a list of three vectors containing fish count data. Write a for-loop to calculate the mean of each, and then show me the exact parallel way to do it using purrr's map_dbl function." Compare the visual simplicity.*
+My code given is below 
 ```{r}
 # Example fish count vectors
 fish1 <- c(12, 15, 18, 20)
@@ -139,6 +158,8 @@ fish3 <- c(30, 28, 35, 40)
 # Put them into a list
 fish_counts <- list(fish1, fish2, fish3)
 
+
+# Using a for-loop 
 # Empty vector to store means
 mean_counts <- numeric(length(fish_counts))
 
@@ -149,7 +170,7 @@ for(i in seq_along(fish_counts)) {
 
 mean_counts
 
-# For Purrr 
+# Using Purrr 
 library(purrr)
 
 mean_countsP <- map_dbl(fish_counts, mean)
@@ -157,9 +178,10 @@ mean_countsP <- map_dbl(fish_counts, mean)
 mean_countsP
 ```
 
-4.5 Writing custom functions
-When you find yourself copying and pasting the exact same block of logical code or loop transformations three or more times, it is time to write a custom function. Functions package your logic into clear, named, reusable assets.
-Function Construction Blueprint
+## Writing custom functions
+When you find yourself copying and pasting the exact same block of logical code or loop transformations three or more times, it is time to write a custom function. Functions package your logic into clear, named, reusable assets
+
+## Function Construction Blueprint 
 A function consists of a Name, Arguments (the input variables), and a Body (the execution logic wrapped inside curly braces).
 
 
