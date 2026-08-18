@@ -669,40 +669,6 @@ temp_CtoF(28)</code></pre>
 #Error in temp_CtoF(-279) :
 #Temperature cannot be below absolute zero (-273.15°C).</code></pre>
 </div>
-<div id="advanced-scripting-extension-challenges" class="section level2">
-<h2>Advanced Scripting Extension Challenges</h2>
-<p>For anyone seeking an extra challenge, apply your structural
-programming tools to execute these two advanced production
-pipelines.</p>
-<div id="challenge-1-nested-multi-vector-iteration" class="section level3">
-<h3>Challenge 1: Nested Multi-Vector Iteration</h3>
-<p>In real-world field surveys, calculations often depend on matching
-values across multiple lists or matrices. Read the documentation for
-purrr::map2_dbl(). Given a vector of raw survey counts counts &lt;-
-c(15, 24, 8, 42) and a vector of species-specific scaling factors
-factors &lt;- c(1.2, 0.8, 2.5, 1.1), write a mapping statement that
-iterates across both vectors simultaneously to return a single vector of
-scaled abundance values. Do not use a manual index loop.</p>
-</div>
-<div id="challenge-2-the-robust-data-wrangling-pipeline-function" class="section level3">
-<h3>Challenge 2: The Robust Data Wrangling Pipeline Function</h3>
-<p>Create a custom function named clean_and_classify_survey that handles
-complex data frame structures. The function must fulfill these
-criteria:</p>
-<p>Accept a data frame and a column name threshold parameter as inputs.
-Safely check if the specified column name exists within the passed data
-frame; if it does not, trigger a user-friendly error message using
-stop().</p>
-<p>Filter out rows containing missing values (NA) within that specific
-column. Use the pipe operator and mutate() along with a vectorised
-conditional (if_else() or case_when()) to append a status string
-variable classification based on your threshold parameter.</p>
-<p>Return the cleaned, altered data frame to the global environment.
-Test your custom pipeline using a mock tibble that contains at least one
-missing value to confirm your code handles anomalies without
-crashing.</p>
-</div>
-</div>
 
 
 
